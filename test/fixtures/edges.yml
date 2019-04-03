@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  node: one
+  name: MyString
+  metric_operation: one
+
+two:
+  node: two
+  name: MyString
+  metric_operation: two

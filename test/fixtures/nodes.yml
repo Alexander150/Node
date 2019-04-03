@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  metric_value: one
+  name: MyString
+  body: MyText
+
+two:
+  metric_value: two
+  name: MyString
+  body: MyText
