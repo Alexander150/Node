@@ -4,6 +4,7 @@ class NodeController < ApplicationController
   end
 
   def show
-  	  	
+  	  @node = Node.find(params[:id])
+  	  # edges = @node.edges
   end
 end

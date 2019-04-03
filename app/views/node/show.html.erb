@@ -1,0 +1,8 @@
+<p><%= @node.body.html_safe %></p>
+<% @node.edges.each do |e| %>
+	<a href="/node/<%= e.target_node_id %>">
+		<button class="btn">
+			<%= e.name %>
+		</button>
+	</a>
+<% end %>
