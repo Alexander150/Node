@@ -1,8 +1,16 @@
+<% Metric.all.each do |m|%>
+  <p><%= m.name %>: <%= session[m.name] %></p>
+<% end %>
 <p><%= @node.body.html_safe %></p>
 <% @node.edges.each do |e| %>
-	<a href="/node/<%= e.target_node_id %>">
+	<a href="/edges/<%= e.id %>">
 		<button class="btn">
-			<%= e.name %> <%= @id %>
+			<%= e.name %> <%= @metric_operations %>
 		</button>
 	</a>
 <% end %>
+
+
+
+
+<!--Добавить строковый value в таблицу валуес и сохранять в сессия и менять а в метрику тип -->

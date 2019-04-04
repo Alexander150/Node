@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   	resources :edges
   end
 
+  resources :edges
+
   root 'node#index'
 end
