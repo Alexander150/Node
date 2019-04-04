@@ -5,6 +5,7 @@ class Repair < ActiveRecord::Migration[5.2]
   	add_column :metric_operations, :edge_id, :integer
   	add_column :nodes, :edge_id, :integer
   	add_column :metric_values, :name, :string
-
+  	remove_column :metric_operations, :metric_id
+  	add_column :metric_operations, :metric_value_id, :integer
   end
 end

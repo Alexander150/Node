@@ -1,3 +1,3 @@
 class MetricValue < ApplicationRecord
-  belongs_to :metric
+  has_many :metrics
 end

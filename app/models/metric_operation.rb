@@ -1,3 +1,3 @@
 class MetricOperation < ApplicationRecord
-  belongs_to :metric
+  has_many :metric_values
 end

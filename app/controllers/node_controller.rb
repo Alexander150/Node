@@ -5,6 +5,10 @@ class NodeController < ApplicationController
 
   def show
   	  @node = Node.find(params[:id])
-  	  # edges = @node.edges
+  	  metric_values = @node.metric_values
+  	  @id = metric_values.ids
+  	  # metrics.each do |e|
+  	  # 	@id = e.id
+  	  # end
   end
 end

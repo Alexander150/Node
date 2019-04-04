@@ -8,7 +8,7 @@ form do |f|
 	f.inputs do
 		f.input :name, label: "Название значения: "
 		f.input :value, label: "Значение метрики: "
-		f.input :metric_id, label: "Связанные метрики: ", as: :select, collection: Metric.all.map { |e| [e.name, e.id] }
+		f.input :metric_ids, label: "Связанные метрики: ", as: :select, collection: Metric.all.map { |e| [e.name, e.id] }
 		f.input :node_id, label: "Связанные ноды: ", as: :select, collection: Node.all.map { |e| [e.name, e.id]  }
 	end
 	f.actions

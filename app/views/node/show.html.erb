@@ -2,7 +2,7 @@
 <% @node.edges.each do |e| %>
 	<a href="/node/<%= e.target_node_id %>">
 		<button class="btn">
-			<%= e.name %>
+			<%= e.name %> <%= @id %>
 		</button>
 	</a>
 <% end %>

@@ -41,22 +41,21 @@ ActiveRecord::Schema.define(version: 2019_04_03_163859) do
   end
 
   create_table "metric_operations", force: :cascade do |t|
-    t.bigint "metric_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "edge_id"
-    t.index ["metric_id"], name: "index_metric_operations_on_metric_id"
+    t.integer "metric_value_id"
   end
 
   create_table "metric_values", force: :cascade do |t|
-    t.bigint "metric_id"
+    t.bigint "metrics_id"
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "node_id"
     t.string "name"
-    t.index ["metric_id"], name: "index_metric_values_on_metric_id"
+    t.index ["metrics_id"], name: "index_metric_values_on_metrics_id"
   end
 
   create_table "metrics", force: :cascade do |t|
@@ -77,7 +76,6 @@ ActiveRecord::Schema.define(version: 2019_04_03_163859) do
 
   add_foreign_key "edges", "metric_operations"
   add_foreign_key "edges", "nodes"
-  add_foreign_key "metric_operations", "metrics"
-  add_foreign_key "metric_values", "metrics"
+  add_foreign_key "metric_values", "metrics", column: "metrics_id"
   add_foreign_key "nodes", "metric_values"
 end

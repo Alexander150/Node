@@ -11,13 +11,8 @@ form do |f|
 		f.input :target_node_id,label: "Ведет на нод: ", as: :select, collection: Node.all.map{|x| [x.name, x.id]}
 		f.input :metric_operation_id,label: "Какое дейсвие совершает: ", as: :select, collection: MetricOperation.all.map{|x| [x.name, x.id]} 
 	end
-	# f.has_many :metrics do |m|
-	# 	m.inputs
-	# end
 	f.actions
 end
-
-#
 # or
 #
 # permit_params do
