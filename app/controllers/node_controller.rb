@@ -7,8 +7,9 @@ class NodeController < ApplicationController
   	  @node = Node.find(params[:id])
   	  metric_values = @node.metric_values
   	  @id = metric_values.ids
-  	  # metrics.each do |e|
-  	  # 	@id = e.id
-  	  # end
+  	  
+  	  metrics.each do |e|
+  	  	@id = e.id
+  	  end
   end
 end
