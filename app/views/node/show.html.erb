@@ -1,11 +1,22 @@
+<div ng-controller="NodeCtrl">
+
 <% Metric.all.each do |m|%>
   <p><%= m.name %>: <%= session[m.name] %></p>
 <% end %>
+<% @node.metric_values.each do |m_v|%>
+	<% if m_v.has_to_be_entered %>
+	  <input ng-change="makeUrl(<%= m_v.id%>,metricValue<%= m_v.id%>);" ng-model="metricValue<%= m_v.id%>" placeholder="<%= m_v.metric.name %>" type="text" name="value" id="m_v_<%= m_v.id %>" />
+	<% end %>
+<% end %>
+
 <p><%= @node.body.html_safe %></p>
 <% @node.edges.each do |e| %>
-	<a href="/edges/<%= e.id %>">
-		<button class="btn">
-			<%= e.name %> <%= @metric_operations %>
-		</button>
-	</a>
+	{{url}}
+	<div ng-init="init(<%= e.target_node_id %>)">
+		<a href="{{url}}" style="text-decoration: none;">
+			<button class="btn"><%= e.name %></button>
+		</a>
+	</div>
+	
 <% end %>
+</div>

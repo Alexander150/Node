@@ -10,7 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
+var app = angular.module('NodesApp', ['ngMaterial']);
+
+app.controller('NodeCtrl', ['$scope', function($scope){
+	var nodeId = -1;
+	$scope.init = function(newNodeId){
+		nodeId = newNodeId;
+		$scope.url = "/node/"+nodeId;
+
+	}
+	$scope.makeUrl = function(mId, mValue){
+		$scope.url = "/node/"+nodeId+"?";
+		$scope.url += "m_id"+mId+"value="+mValue;
+	}
+}]);
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .

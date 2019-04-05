@@ -1,7 +1,6 @@
 class EdgesController < ApplicationController
 
 	def show
-
 		edge = Edge.find(params[:id])
 		@metric_operations = edge.metric_operations
 		edge.metric_operations.each do |m_o|
@@ -19,6 +18,10 @@ class EdgesController < ApplicationController
 		end
 
 		redirect_to "/node/#{edge.target_node_id}"
+	end
+
+	def create
+		# redirect_to "/node/#{@edge.target_node_id}"
 	end
 
 end

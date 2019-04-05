@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_164521) do
+ActiveRecord::Schema.define(version: 2019_04_05_135707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_164521) do
     t.datetime "updated_at", null: false
     t.integer "node_id"
     t.string "name"
+    t.boolean "has_to_be_entered"
     t.index ["metrics_id"], name: "index_metric_values_on_metrics_id"
   end
 
