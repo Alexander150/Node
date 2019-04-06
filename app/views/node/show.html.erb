@@ -11,7 +11,6 @@
 
 <p><%= @node.body.html_safe %></p>
 <% @node.edges.each do |e| %>
-	{{url}}
 	<div ng-init="init(<%= e.target_node_id %>)">
 		<a href="{{url}}" style="text-decoration: none;">
 			<button class="btn"><%= e.name %></button>

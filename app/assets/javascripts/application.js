@@ -23,7 +23,8 @@ app.controller('NodeCtrl', ['$scope', function($scope){
 	}
 	$scope.makeUrl = function(mId, mValue){
 		$scope.url = "/node/"+nodeId+"?";
-		$scope.url += "m_id"+mId+"value="+mValue;
+		// $scope.url += "m_id"+mId+"value="+mValue;
+		$scope.url += "value="+mValue;
 	}
 }]);
 //= require rails-ujs
