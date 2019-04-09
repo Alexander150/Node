@@ -1,0 +1,11 @@
+<div class="header"> Admin Page </div><br>
+<div class="admin">
+	<% @nodes.each do |n| %>
+		<% if n.id == @last_node.id %>
+			<div class="nodes"><%=n.name%></div>
+		<% else %>
+			<div class="nodes"><%=n.name%></div>
+			<div style="width: calc(50% - <%= @last_node.id %>*10%); height: 2px; background-color: black;"></div>
+		<% end %>
+	<% end %>
+</div>

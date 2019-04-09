@@ -2,7 +2,7 @@ body{
 	background-color: #00abff;
 	font-size: 4vw;
 	text-align: center;
-	width: 1360px;
+	width: 100%;
 	color: white;
 }
 .main_body{
@@ -16,4 +16,25 @@ body{
 	width: 500px;
 	height: 50px;
 	background-color: green;
+}
+
+/* Для админки (FLow) */
+.header{
+	width: 100%;
+	height: auto;
+}
+.admin{
+	display: -webkit-flex; 
+	-webkit-justify-content: flex-start;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.nodes{
+	background-color: white;
+	color: black;
+	display: inline-block;
+	width: 10%;
+	height: auto;
 }

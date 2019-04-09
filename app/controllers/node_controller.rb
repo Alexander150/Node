@@ -29,8 +29,6 @@ class NodeController < ApplicationController
 		  		session[m.name] = "sdfghjkl"
 		  	end
 		end
-	  else
-	  	# EdgesController.show
 	  end
   end
 end
