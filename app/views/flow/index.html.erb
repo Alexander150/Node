@@ -3,9 +3,11 @@
 	<% @nodes.each do |n| %>
 		<% if n.id == @last_node.id %>
 			<div class="nodes"><%=n.name%></div>
+			<div style="width: calc((100% - <%= @last_node.id %>*10%)/<%= @last_node.id %>); height: 2px; background-color: black;"></div>
+			<a href= "/admin/nodes/new" ><button class="btn">Создать новый нод</button></a>
 		<% else %>
 			<div class="nodes"><%=n.name%></div>
-			<div style="width: calc(50% - <%= @last_node.id %>*10%); height: 2px; background-color: black;"></div>
+			<div style="width: calc((100% - <%= @last_node.id %>*10%)/<%= @last_node.id %>); height: 2px; background-color: black;"></div>
 		<% end %>
 	<% end %>
 </div>
