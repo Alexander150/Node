@@ -1,8 +1,9 @@
 class FlowController < ApplicationController
   def index
-  	@nodes = Node.all
+  	# @first_node = Node.find_by :first_node => true
+  	# @nodes = Node.all
+  	@edges = Edge.all
 
-  	@last_node = Node.last
-
+  	@last_edge = Edge.last
   end
 end

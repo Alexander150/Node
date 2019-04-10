@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_135707) do
+ActiveRecord::Schema.define(version: 2019_04_10_135100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_135707) do
     t.datetime "updated_at", null: false
     t.integer "edge_id"
     t.boolean "first_node"
+    t.boolean "last_node"
     t.index ["metric_value_id"], name: "index_nodes_on_metric_value_id"
   end
 
