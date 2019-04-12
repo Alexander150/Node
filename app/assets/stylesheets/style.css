@@ -16,7 +16,7 @@ body{
 	width: auto;
 	height: auto;
 	background-color: green;
-	font-size: 2vw;
+	font-size: 1vw;
 }
 
 /* Для админки (FLow) */
@@ -25,12 +25,25 @@ body{
 	height: auto;
 }
 .admin{
+	width: 100%;
 	display: -webkit-flex; 
 	-webkit-justify-content: flex-start;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	position: relative;
 	z-index: 1;
+}
+
+.white_block{
+	background-color: white;
+	border-radius: 10px;
+	width: 40%;
+	height: 50%;
+	margin-left: 8%;
+	z-index: 2;
+	position: fixed;
+	display: none;
 }
 .green_line, .red_line, .violet_line{
 	display: none;
@@ -39,21 +52,48 @@ body{
 	color: black;
 	width: 30%;
 	height: auto;
-	z-index: 2;
-	margin-top: 1%;
+	z-index: 3;
+	margin-top: -3.5%;
+	text-align: left;
+}
+.green_circle, .red_circle, .violet_circle{
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	display: none;
+	position: fixed;
+	margin-top: -3.9%;
+	z-index: 10;
+}
+.green_circle{
+	background-color: green;
+	margin-left: 14%;
+}
+.red_circle{
+	background-color: red;
+	margin-left: 12%;
+}
+.violet_circle{
+	background-color: purple;
+	margin-left: 10%;
 }
 .green_line {
-	padding-top: 10%;
-	margin-left: 10%;
+	padding-top: 5%;
+	margin-left: 14.25%;
 	border-left: 2px solid green;
+	text-decoration: underline green;
 }
 .red_line {
-	margin-left: 8%;
+	padding-top: 7.5%;
+	margin-left: 12.25%;
 	border-left: 2px solid red;
+	text-decoration: underline red;
 }
 .violet_line {
-	margin-left: 6%;
+	padding-top: 10%;
+	margin-left: 10.25%;
 	border-left: 2px solid purple;
+	text-decoration: underline purple;
 }
 .nodes{
 	background-color: white;
@@ -61,6 +101,11 @@ body{
 	font-size: 2vw;
 	color: black;
 	display: inline-block;
-	width: 5%;
+	width: 20%;
+	/*width: 5%;*/
 	height: auto;
+}
+.nodes:hover{
+	background-color: grey;
+	color: white;
 }

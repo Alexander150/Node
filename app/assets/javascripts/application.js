@@ -27,6 +27,29 @@ app.controller('NodeCtrl', ['$scope', function($scope){
 		$scope.url += "value="+mValue;
 	}
 }]);
+
+app.controller('AdminBoardCtrl', function($scope){
+	$scope.init = function(){
+		$.getJSON("/flow/edges",function(res){
+			$scope.edges = res;
+			$scope.$apply();	
+		});
+		setTimeout(function(){
+			$scope.init();
+		}, 5000);
+	}
+
+$scope.nodeView = function(name) {
+	var blocks = document.getElementsByName(name);
+	for (var i = 0; i < blocks.length; i++) {
+		if (blocks[i].style.display == "block") {
+			blocks[i].style.display = "none"
+		} else {
+			blocks[i].style.display = "block"
+		}
+	}
+}
+});
 //= require rails-ujs
 //= require activestorage
 //= require_tree .

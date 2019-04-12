@@ -1,45 +1,14 @@
-<div class="header"> Admin Page </div><br>
-<div class="admin">
-	<% @edges.each do |e| %>
-		<div class="nodes" onclick="view(this, '<%= e.name %>');"><%= e.node.name %></div>
-		<div style="width: calc((100% - <%= @last_edge.id %>*10%)/<%= @last_edge.id %>); height: 2px; background-color: black;"></div>
-		<% if e.id == @last_edge.id %>
-			<a style="text-decoration: none; color: black;" href= "/admin/nodes/new"><div class="btn">Создать новый нод</div></a>
-		<% end %>
-		<% e.node.metric_values.each do |metric_value| %>
-			<% if !metric_value.has_to_be_entered %>
-				<div class="green_line" name="<%= e.name %>">
-					<%= metric_value.metric.name %> = 
-					<%= metric_value.value %>
-				</div>
-			<% else %>
-				<div class="red_line" name="<%= e.name %>">
-					<%= metric_value.metric.name %> = 
-					<%= metric_value.value %>
-				</div>
-			<% end %>
-		<% end %>
-		<div class="violet_line" name="<%= e.name %>">
-			<% e.metric_operations.each do |metric_operation| %>
-				<%= metric_operation.name %><br>
-			<% end %>	
-		</div>
-	<% end %>
+<div ng-controller="AdminBoardCtrl" ng-init="init();">
+	<div class="header"> Admin Page </div><br>
+	<div class="admin">
+		<span ng-repeat="e in edges" style="position: relative; min-width: 299px; width: calc(100% / <%= @last_edge.id %>)" ng-mouseenter="nodeView(e.name);" ng-mouseleave="nodeView(e.name);">
+			<div style="display: -webkit-flex; -webkit-justify-content: flex-start; display: flex; align-items: center;">
+				<div class="nodes">{{ e.node.name }}</div>
+				<div style="width: 90%; display: inline-block; height: 2px; background-color: black;"></div>
+			</div>
+			<a style="text-decoration: none; color: black;" href= "/admin/nodes/new"><div class="btn" style="width: 20%;">Создать новый нод</div></a>
+			<div class="white_block" name= "{{ e.name }}"></div>
+			<%= render partial:"/flow/edge_circles" %>
+		</span>
+	</div>
 </div>
-
-<script type="text/javascript">
-	function view(obj, name) {
-		blocks = document.getElementsByName(name);
-		for (var i = 0; i < blocks.length; i++) {
-			if (blocks[i].style.display == "block") {
-				blocks[i].style.display = "none"
-				obj.style.background = "white"
-				obj.style.color = "black"
-			} else {
-				blocks[i].style.display = "block"
-				obj.style.background = "grey"
-				obj.style.color = "white"
-			}
-		}
-	}
-</script>
