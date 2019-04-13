@@ -16,7 +16,7 @@ class FlowController < ApplicationController
 		}
 	]
 
-	@last_edge = Edge.last
+	@last_edge_id = Edge.last.id
   	
   end
 end

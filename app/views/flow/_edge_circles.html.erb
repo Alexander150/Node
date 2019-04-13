@@ -2,21 +2,44 @@
 	<span ng-if="!metric_value.has_to_be_entered">
 		<div class="green_circle" name="{{e.name }}"></div>
 		<div class="green_line" name="{{e.name}}">
-			&nbsp;{{ metric_value.metric.name }} = 
-			{{metric_value.value }}
-		</div>
-	</span>
-	<span ng-if="!!metric_value.has_to_be_entered">
-		<div class="red_circle" name="{{ e.name }}"></div>
-		<div class="red_line" name="{{ e.name }}">
 			{{ metric_value.metric.name }} = 
-			{{ metric_value.value }}
+			{{ metric_value.value }}<br>
+			<span ng-if="$last">
+				<p>
+					{{ metric_value.metric.name }} = {{ metric_value.value }}
+				</p>
+				<a href="/admin/metrics/new" style="text-decoration: none;">
+					<button class="btn_admin">
+						Создать новую метрику
+					</button>
+				</a>
+			</span>
 		</div>
 	</span>
+	<div class="red_circle" name="{{ e.name }}"></div>
+	<div class="red_line" name="{{ e.name }}">
+		<span ng-if="!!metric_value.has_to_be_entered">
+			<p>{{ metric_value.metric.name }}</p>
+			<span ng-if="$last">
+				<a href="/admin/metrics/new" style="text-decoration: none;">
+					<button class="btn_admin">
+						Создать новую метрику
+					</button>
+				</a>
+			</span>
+		</span>
+	</div>
 </span>
 <div class="violet_circle" name="{{ e.name }}"></div>
 <div class="violet_line" name="{{ e.name }}">
 	<span ng-repeat="metric_operation in e.metric_operations">
-		{{metric_operation.name}}<br>
+		<p>{{metric_operation.name}}</p>
+		<span ng-if="$last">
+			<a href="/admin/metric_operations/new" style="text-decoration: none;">
+				<button class="btn_admin">
+					Создать новую операцию
+				</button>
+			</a>
+		</span>
 	</span>
 </div>

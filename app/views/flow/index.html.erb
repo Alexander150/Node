@@ -1,12 +1,15 @@
-<div ng-controller="AdminBoardCtrl" ng-init="init();">
-	<div class="header"> Admin Page </div><br>
+<div ng-controller="AdminBoardCtrl" ng-init="init();" class="admin_body">
 	<div class="admin">
-		<span ng-repeat="e in edges" style="position: relative; min-width: 299px; width: calc(100% / <%= @last_edge.id %>)" ng-mouseenter="nodeView(e.name);" ng-mouseleave="nodeView(e.name);">
+		<span ng-repeat="e in edges" style="position: relative; min-width: 299px; width: calc(100% / <%= @last_edge.id %>)">
 			<div style="display: -webkit-flex; -webkit-justify-content: flex-start; display: flex; align-items: center;">
-				<div class="nodes">{{ e.node.name }}</div>
-				<div style="width: 90%; display: inline-block; height: 2px; background-color: black;"></div>
+				<div class="nodes" ng-mouseenter="nodeView(e.name);" ng-mouseleave="nodeView(e.name);">{{ e.node.name }}</div>
+				<div ng-if="!$last" style="width: 90%; display: inline-block; height: 2px; background-color: black;"></div>
 			</div>
-			<a style="text-decoration: none; color: black;" href= "/admin/nodes/new"><div class="btn" style="width: 20%;">Создать новый нод</div></a>
+			<a style="text-decoration: none; color: black;" href= "/admin/nodes/new">
+				<div class="btn_admin">
+					Создать новый нод
+				</div>
+			</a>
 			<div class="white_block" name= "{{ e.name }}"></div>
 			<%= render partial:"/flow/edge_circles" %>
 		</span>
