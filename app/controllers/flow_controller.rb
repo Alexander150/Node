@@ -7,6 +7,7 @@ class FlowController < ApplicationController
   	@last_edge = Edge.last
   	# render json: @edges, include: [:nodes]
   end
+  
   def edges
 	render json: @edges = Edge.all, include: [
 		:metric_operations, { 
@@ -17,6 +18,5 @@ class FlowController < ApplicationController
 	]
 
 	@last_edge_id = Edge.last.id
-  	
   end
 end

@@ -71,18 +71,18 @@ app.controller('AdminBoardCtrl', function($scope){
 			node: $scope.sentData
 		};
 		$.ajax({
-			url: '/nodes/create',
+			url: '/node/create',
 			type: "POST",
  			data: data,
-			success: function(wef){
-				alert('wow'+wef);
+			success: function(msg){
+				// alert('Новый нод добавлен');
 				$("#node_creation_"+e.id).css({
 					"opacity": 0,
 					"pointer-events": "none"
 				});
 			},
-			error: function(wef){
-				alert("ERROR: "+JSON.stringify(wef));
+			error: function(msg){
+				alert("ERROR: "+JSON.stringify(msg));
 			}
 		});
 	}

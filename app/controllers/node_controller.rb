@@ -31,4 +31,13 @@ class NodeController < ApplicationController
 		end
 	  end
   end
+  def create
+  	@node = Node.new(node_params)
+  	@node.save
+  end
+
+  private
+	  def node_params
+	    params.require(:node).permit(:name, :body, :first_node, :last_node, :metric_value, :edges)
+	  end
 end
