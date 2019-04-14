@@ -1,7 +1,6 @@
 class NodeController < ApplicationController
   def index
-  	
-  	@first_node = Node.first
+  	@first_node = Node.find_by first_node: true
   end
 
   def show
@@ -32,6 +31,7 @@ class NodeController < ApplicationController
 	  end
   end
   def create
+
   	@node = Node.new(node_params)
   	@node.save
   end

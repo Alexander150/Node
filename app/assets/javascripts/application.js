@@ -75,7 +75,7 @@ app.controller('AdminBoardCtrl', function($scope){
 			type: "POST",
  			data: data,
 			success: function(msg){
-				// alert('Новый нод добавлен');
+				alert('Новый нод добавлен');
 				$("#node_creation_"+e.id).css({
 					"opacity": 0,
 					"pointer-events": "none"
