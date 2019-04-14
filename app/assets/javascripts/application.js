@@ -29,26 +29,63 @@ app.controller('NodeCtrl', ['$scope', function($scope){
 }]);
 
 app.controller('AdminBoardCtrl', function($scope){
+	var skipUpdate = false;
 	$scope.init = function(){
+
 		$.getJSON("/flow/edges",function(res){
-			$scope.edges = res;
-			$scope.$apply();	
+			if (!skipUpdate){
+				$scope.edges = res;
+				$scope.$apply();
+			}
+			setTimeout(function(){
+				$scope.init();
+			}, 5000);		
 		});
-		setTimeout(function(){
-			$scope.init();
-		}, 5000);
+		
 	}
 
-$scope.nodeView = function(name) {
-	var blocks = document.getElementsByName(name);
-	for (var i = 0; i < blocks.length; i++) {
-		if (blocks[i].style.display == "block") {
-			blocks[i].style.display = "none"
-		} else {
-			blocks[i].style.display = "block"
+	$scope.nodeView = function(name) {
+		var blocks = document.getElementsByName(name);
+		for (var i = 0; i < blocks.length; i++) {
+			if (blocks[i].style.display == "block") {
+				blocks[i].style.display = "none"
+			} else {
+				blocks[i].style.display = "block"
+			}
 		}
 	}
-}
+
+	$scope.createNode = function(e){
+		if (!!skipUpdate) return;
+		skipUpdate = true;
+		$scope.activeEdge = e;
+		$scope.sentData = {};
+		$("#node_creation_"+e.id).css({
+			"opacity": 1,
+			"pointer-events": "all"
+		});
+	}
+
+	$scope.sendNewNodeData = function(){
+		var data = {
+			node: $scope.sentData
+		};
+		$.ajax({
+			url: '/nodes/create',
+			type: "POST",
+ 			data: data,
+			success: function(wef){
+				alert('wow'+wef);
+				$("#node_creation_"+e.id).css({
+					"opacity": 0,
+					"pointer-events": "none"
+				});
+			},
+			error: function(wef){
+				alert("ERROR: "+JSON.stringify(wef));
+			}
+		});
+	}
 });
 //= require rails-ujs
 //= require activestorage
