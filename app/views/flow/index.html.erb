@@ -1,6 +1,6 @@
 <div ng-controller="AdminBoardCtrl" ng-init="init();" class="admin_body">
 	<div class="admin">
-		<span ng-repeat="e in edges" style="position: relative; min-width: 299px; width: calc(100% / <%= @last_edge.id %>)">
+		<span ng-repeat="e in edges" style="position: relative; min-width: 299px; width: calc(100% / <%= @edges.count %>)">
 			<%= render "/flow/new_node" %>
 			<div style="display: -webkit-flex; -webkit-justify-content: flex-start; display: flex; align-items: center;">
 				<div class="nodes" ng-mouseenter="nodeView(e.name);" ng-mouseleave="nodeView(e.name);">{{ e.node.name }}</div>

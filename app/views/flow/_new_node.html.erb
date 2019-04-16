@@ -1,7 +1,7 @@
 <div class="new-node-container" id="node_creation_{{e.id}}">
 	<i class="fal fa-times">X</i>
-	{{sentData}}
-	<input ng-model="sentData.name" class="node-creation-input" name="node_name" placeholder="Название нода" />
-	<input ng-model="sentData.body" class="node-creation-input" name="node_body" placeholder="Тело нода" />
-	<button ng-click="sendNewNodeData();">СОЗДАТЬ</button>
+	<!-- {{dataNode}} -->
+	<input ng-model="dataNode.name" class="node-creation-input" name="node_name" placeholder="Название нода" />
+	<input ng-model="dataNode.body" class="node-creation-input" name="node_body" placeholder="Тело нода" />
+	<button ng-click="sendNewNodeData(e);">СОЗДАТЬ</button>
 </div>

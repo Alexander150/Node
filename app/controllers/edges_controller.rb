@@ -19,7 +19,13 @@ class EdgesController < ApplicationController
 		redirect_to "/node/#{edge.target_node_id}"
 	end
 
-# 	NodeController.params["value"].to_i
-# NodeController.params["value"].to_i
+	def create
+		@edge = Edge.new(edge_params)
+		@edge.save
+	end
 
+	private
+		def edge_params
+			params.require(:edge).permit(:node_id, :target_node_id)
+		end
 end
