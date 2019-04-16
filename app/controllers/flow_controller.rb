@@ -14,7 +14,7 @@ class FlowController < ApplicationController
        	 current_node_id = current_node.edges[0].target_node_id
        	 current_node = Node.find_by id: current_node_id
        	else
-       		# current_node = nil
+       		current_node = nil
         end
   	end
   end
