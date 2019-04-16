@@ -1,34 +1,43 @@
 class FlowController < ApplicationController
   def index
   	@edges = []
+
+  	# @last_node_id = Node.last.id
+
   	@first_node = Node.find_by :first_node => true
   	@last_node = Node.find_by :last_node => true
   	current_node = @first_node
   	while (!current_node.nil?)
        @edges+=[current_node.edges[0]]
-       # if (current_node.edges[0].target_node.nil?)
-       # 	@last_edge = current_node.edges[0]
-       # end
-       current_node_id = current_node.edges[0].target_node_id
-       current_node = Node.find_by id: current_node_id
+       
+       if (current_node.edges[0] != nil)
+       	 current_node_id = current_node.edges[0].target_node_id
+       	 current_node = Node.find_by id: current_node_id
+       	else
+       		# current_node = nil
+        end
   	end
-  	# @edges = Edge.all
   end
 
   def edges
   	@edges = []
+
+  	# @last_node_id = Node.last.id
+
   	@first_node = Node.find_by :first_node => true
   	@last_node = Node.find_by :last_node => true
   	current_node = @first_node
   	while (!current_node.nil?)
-       @edges+=[current_node.edges[0]]
-       # if (current_node.edges[0].target_node.nil?)
-       # 	@last_edge = current_node.edges[0]
-       # end
-       current_node_id = current_node.edges[0].target_node_id
-       current_node = Node.find_by id: current_node_id
+        @edges+=[current_node.edges[0]]
+
+        if (current_node.edges[0] != nil)
+       	 current_node_id = current_node.edges[0].target_node_id
+       	 current_node = Node.find_by id: current_node_id
+       	else
+       		current_node = nil
+        end
   	end
-  	
+
 	render json: @edges, include: [
 		:metric_operations, { 
 			:node => { include: [

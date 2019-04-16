@@ -3,5 +3,6 @@
 	<!-- {{dataNode}} -->
 	<input ng-model="dataNode.name" class="node-creation-input" name="node_name" placeholder="Название нода" />
 	<input ng-model="dataNode.body" class="node-creation-input" name="node_body" placeholder="Тело нода" />
+	<input type="checkbox" ng-model="dataNode.last_node" class="node-creation-input" name="node_last_node" />
 	<button ng-click="sendNewNodeData(e);">СОЗДАТЬ</button>
 </div>
