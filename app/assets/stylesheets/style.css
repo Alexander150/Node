@@ -4,6 +4,7 @@ body{
 	text-align: center;
 	width: 100%;
 	color: white;
+	overflow-x: hidden;
 }
 .main_body{
 	text-align: center;

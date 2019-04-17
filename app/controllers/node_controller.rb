@@ -37,11 +37,11 @@ class NodeController < ApplicationController
 
   	@edge = Edge.find_by id: params.require(:edge)
 
-  	@edge1 = Edge.new(node_id: @edge.node_id, target_node_id: @node.id)
-  	@edge1.save!
+  	@new_edge = Edge.new(node_id: @node.id, target_node_id: @edge.target_node_id)
+  	@new_edge.save!
 
-  	@edge2 = Edge.new(node_id: @node.id, target_node_id: @edge.target_node_id)
-  	@edge2.save!
+  	@edge.update_attributes!(target_node_id: @node.id)
+  	# @edge.save!
   end
 
   private
