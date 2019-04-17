@@ -19,10 +19,11 @@ class EdgesController < ApplicationController
 		redirect_to "/node/#{edge.target_node_id}"
 	end
 
-	def create
-		@edge = Edge.new(edge_params)
-		@edge.save
-	end
+	public
+		def create
+			@edge = Edge.new(edge_params)
+			@edge.save
+		end
 
 	private
 		def edge_params

@@ -69,36 +69,32 @@ app.controller('AdminBoardCtrl', function($scope){
 
 	$scope.sendNewNodeData = function(e){
 		var dataNode = {
-			node: $scope.dataNode
-		};
-		var dataForEdge = {
-			node_id: e.node_id,
-			target_node_id: e.target_node_id
-		};
-		var dataEdge = {
-			edge: dataForEdge
+			node: $scope.dataNode,
+			edge: e.id
 		};
 		$.ajax({
 			url: '/node/create',
 			type: "POST",
  			data: dataNode,
 			success: function(msg){
-				alert('Новый нод добавлен');
-				// $("#node_creation_"+e.id).css({
-				// 	"opacity": 0,
-				// 	"pointer-events": "none"
-				// });
-				$.ajax({
-					url: '/edges/create',
-					type: "POST",
-					data: dataEdge,
-					success: function(){
-						alert("wow");
-					},
-					error: function(msg){
-						alert("Error: " + JSON.stringify(dataEdge));
-					}
+				alert(JSON.stringify(dataNode));
+				$("#node_creation_"+e.id).css({
+					"opacity": 0,
+					"pointer-events": "none"
 				});
+
+
+				// $.ajax({
+				// 	url: '/edges/create',
+				// 	type: "POST",
+				// 	data: dataEdge,
+				// 	success: function(){
+				// 		alert("wow");
+				// 	},
+				// 	error: function(msg){
+				// 		alert("Error: " + JSON.stringify(dataEdge));
+				// 	}
+				// });
 			},
 			error: function(msg){
 				alert("ERROR: "+JSON.stringify(msg));

@@ -30,10 +30,18 @@ class NodeController < ApplicationController
 		end
 	  end
   end
-  def create
 
+  def create
   	@node = Node.new(node_params)
   	@node.save
+
+  	@edge = Edge.find_by id: params.require(:edge)
+
+  	@edge1 = Edge.new(node_id: @edge.node_id, target_node_id: @node.id)
+  	@edge1.save!
+
+  	@edge2 = Edge.new(node_id: @node.id, target_node_id: @edge.target_node_id)
+  	@edge2.save!
   end
 
   private
