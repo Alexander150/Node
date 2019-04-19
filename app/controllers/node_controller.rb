@@ -41,7 +41,7 @@ class NodeController < ApplicationController
   	@new_edge.save!
 
   	@edge.update_attributes!(target_node_id: @node.id)
-  	# @edge.save!
+
   end
 
   private

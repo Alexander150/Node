@@ -82,19 +82,6 @@ app.controller('AdminBoardCtrl', function($scope){
 					"opacity": 0,
 					"pointer-events": "none"
 				});
-
-
-				// $.ajax({
-				// 	url: '/edges/create',
-				// 	type: "POST",
-				// 	data: dataEdge,
-				// 	success: function(){
-				// 		alert("wow");
-				// 	},
-				// 	error: function(msg){
-				// 		alert("Error: " + JSON.stringify(dataEdge));
-				// 	}
-				// });
 			},
 			error: function(msg){
 				alert("ERROR: "+JSON.stringify(msg));
