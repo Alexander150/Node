@@ -32,8 +32,15 @@ class NodeController < ApplicationController
   end
 
   def create
+    metric = params.require(:metric_value)["metric"]
+    @metric = Metric.find_by name:  metric
+    @metric_value = MetricValue.new(metric: @metric, value: params.require(:metric_value)["value"])
+    @metric_value.save!
+
   	@node = Node.new(node_params)
-  	@node.save
+  	@node.save!
+
+    @node.update_attributes!(metric_value_id: @metric_value.id)
 
   	@edge = Edge.find_by id: params.require(:edge)
 
@@ -41,6 +48,8 @@ class NodeController < ApplicationController
   	@new_edge.save!
 
   	@edge.update_attributes!(target_node_id: @node.id)
+
+    # @metric_value = MetricValue.new(metric: params.require(:metric), value: )
 
   end
 

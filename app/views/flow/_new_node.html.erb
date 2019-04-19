@@ -5,6 +5,13 @@
 	<!-- <select ng-model="dataNode.metric_value" class="node-creation-input" name="node_metric_value" placeholder="Введите значение метрики">
 		
 	</select> -->
+	<select ng-model="dataMetricValue.metric" placeholder="Выберите метрику">
+		<option style="color: white;">Выберите метрику</option>
+		<% @metrics.each do |metric|%>
+			<option style="color: white;"><%= metric.name %></option>
+		<% end %>
+	</select>
+	<input ng-model="dataMetricValue.value" class="node-creation-input" name="node_metric_value_value" placeholder="Значение метрики">
 	<input type="checkbox" ng-model="dataNode.last_node" class="node-creation-input" name="node_last_node" />
 	<button ng-click="sendNewNodeData(e);">СОЗДАТЬ</button>
 </div>

@@ -60,17 +60,19 @@ app.controller('AdminBoardCtrl', function($scope){
 		skipUpdate = true;
 		$scope.activeEdge = e;
 		$scope.dataNode = {};
-		$scope.dataEdge = {};
+		$scope.dataMetricValue = {};
 		$("#node_creation_"+e.id).css({
 			"opacity": 1,
-			"pointer-events": "all"
+			"pointer-events": "all",
+			"z-index": "10"
 		});
 	}
 
 	$scope.sendNewNodeData = function(e){
 		var dataNode = {
 			node: $scope.dataNode,
-			edge: e.id
+			edge: e.id,
+			metric_value: $scope.dataMetricValue
 		};
 		$.ajax({
 			url: '/node/create',
@@ -80,7 +82,8 @@ app.controller('AdminBoardCtrl', function($scope){
 				alert(JSON.stringify(dataNode));
 				$("#node_creation_"+e.id).css({
 					"opacity": 0,
-					"pointer-events": "none"
+					"pointer-events": "none",
+					"z-index": "0"
 				});
 			},
 			error: function(msg){
