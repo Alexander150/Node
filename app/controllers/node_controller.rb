@@ -34,6 +34,7 @@ class NodeController < ApplicationController
   def create
     metric = params.require(:metric_value)["metric"]
     @metric = Metric.find_by name:  metric
+    
     @metric_value = MetricValue.new(metric: @metric, value: params.require(:metric_value)["value"])
     @metric_value.save!
 
