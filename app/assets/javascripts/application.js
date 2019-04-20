@@ -44,15 +44,19 @@ app.controller('AdminBoardCtrl', function($scope){
 		
 	}
 
-	$scope.nodeView = function(name) {
-		var blocks = document.getElementsByName(name);
+	$scope.nodeView = function(eId) {
+	    // alert(eId);
+		var target = document.getElementById("e-"+eId);
+		var blocks = document.getElementsByClassName("white_block");
+		// alert(blocks.length);
 		for (var i = 0; i < blocks.length; i++) {
-			if (blocks[i].style.display == "block") {
+			// if (blocks[i].style.display == "block") {
 				blocks[i].style.display = "none"
-			} else {
-				blocks[i].style.display = "block"
-			}
+			// } else {
+				// blocks[i].style.display = "block"
+			// }
 		}
+		target.style.display="block";
 	}
 
 	$scope.createNode = function(e){

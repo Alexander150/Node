@@ -3,20 +3,59 @@
 		<span ng-repeat="e in edges" style="position: relative; width: calc(100% / <%= @edges.count %>)">
 			<%= render "/flow/new_node" %>
 			<div style="display: -webkit-flex; -webkit-justify-content: flex-start; display: flex; align-items: center;">
-				<div class="nodes" ng-mouseenter="nodeView(e.name);" ng-mouseleave="nodeView(e.name);">
+				<div class="nodes" ng-mouseenter="nodeView(e.id);" ng-mouseleave="nodeView(e.id);">
 					{{ e.node.name }}
 				</div>
-				<div ng-if="$last" class="nodes" ng-mouseenter="nodeView(e.name);" ng-mouseleave="nodeView(e.name);">
+				<div ng-if="$last" class="nodes" ng-mouseenter="nodeView(e.id);" ng-mouseleave="nodeView(e.id);">
 					<%= @last_node.name %>
 				</div>
 				<div ng-if="!$last" style="display: inline-block; height: 2px; width: 100%; background-color: black;"></div>
 			</div>
 			<div class="btn_admin" ng-click="createNode(e);">
-					Создать новый нод
+					Создать новый нод e-{{e.id}}
 			</div>
-			<div class="white_block" name= "{{ e.name }}">
+			<div class="white_block" id="e-{{e.id}}"  name= "{{ e.name }}">
 				<%= render partial:"/flow/edge_circles" %>
 			</div>
 		</span>
 	</div>
+</div>
+<div class="admin_body2">
+	<table align="left" style="border-color: black;" border="1px">
+		<caption align="left">Параметры</caption>
+		<tr>
+			<th>Название</th>
+			<th>Тип</th>
+			<th>Единицы измерения</th>
+			<th>Минимум</th>
+			<th>Максимум</th>
+			<th>По умолчанию</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>
+				<select>
+					<option>Число</option>
+					<option>Строка</option>
+					<option>Дата</option>
+				</select>
+			</td>
+			<td>
+				<select>
+					<option>Месяц</option>
+					<option>Процент</option>
+					<option>Дата</option>
+				</select>
+			</td>
+			<td>4</td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+			<td>5</td>
+		</tr>
+	</table>
 </div>

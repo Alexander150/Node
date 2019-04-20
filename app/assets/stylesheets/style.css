@@ -30,6 +30,17 @@ body{
 	display: flex;
 	align-items: center;
 }
+.admin_body2{
+	background-color: white;
+	color: black;
+	width: 100%;
+	height: 60%;
+	display: -webkit-flex; 
+	-webkit-justify-content: flex-start;
+	display: flex;
+	align-items: center;
+	font-size: 1vw;
+}
 .admin{
 	width: 100%;
 	display: -webkit-flex; 
@@ -70,7 +81,7 @@ body{
 }
 
 .green_line, .red_line, .violet_line{
-	display: none;
+	/*display: none;*/
 	font-size: 1vw;
 	position: fixed;
 	color: black;
@@ -84,7 +95,7 @@ body{
 	width: 10px;
 	height: 10px;
 	border-radius: 5px;
-	display: none;
+	/*display: none;*/
 	position: fixed;
 	margin-top: -4.9%;
 	z-index: 10;
