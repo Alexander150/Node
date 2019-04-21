@@ -2,12 +2,14 @@ ActiveAdmin.register MetricValue do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :has_to_be_entered, :metrics_id, :value, :node_id, :name
+permit_params :has_to_be_entered, :metrics_id, :value, :node_id, :name, :min_value, :max_value
 
 form do |f|
 	f.inputs do
 		f.input :name, label: "Название значения: "
 		f.input :value, label: "Значение метрики: "
+		f.input :max_value, label: "Максимальное значение метрики: "
+		f.input :min_value, label: "Минимальное значение метрики: "
 		f.input :metrics_id, label: "Связанные метрики: ", as: :select, collection: Metric.all.map { |e| [e.name, e.id] }
 		f.input :node_id, label: "Связанные ноды: ", as: :select, collection: Node.all.map { |e| [e.name, e.id]  }
 		f.input :has_to_be_entered, label: "Нужно ввести"

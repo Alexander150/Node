@@ -1,0 +1,34 @@
+<table align="left" style="border-color: black;" border="1px">
+	<caption align="center">Параметры</caption>
+	<tr>
+		<th>Название</th>
+		<th>Тип</th>
+		<th>Единицы измерения</th>
+		<th>Минимум</th>
+		<th>Максимум</th>
+		<th>По умолчанию(берутся значения из базы)</th>
+	</tr>
+	<% @metric_values.each do |metric_value| %>
+		<tr>
+			<td><%= metric_value.metric.name %></td>
+			<td>
+				<select>
+					<option selected="selected" value="<%= metric_value.id %>"><%= metric_value.metric.type_metric %></option>
+					<option>Число</option>
+					<option>Строка</option>
+					<option>Дата</option>
+				</select>
+			</td>
+			<td>
+				<select>
+					<option>Месяц</option>
+					<option>Процент</option>
+					<option>Дата</option>
+				</select>
+			</td>
+			<td><%= metric_value.min_value %></td>
+			<td><%= metric_value.max_value %></td>
+			<th><%= metric_value.value %></th>
+		</tr>
+	<% end %>
+</table>

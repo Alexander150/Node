@@ -21,41 +21,5 @@
 	</div>
 </div>
 <div class="admin_body2">
-	<table align="left" style="border-color: black;" border="1px">
-		<caption align="center">Параметры</caption>
-		<tr>
-			<th>Название</th>
-			<th>Тип</th>
-			<th>Единицы измерения</th>
-			<th>Минимум</th>
-			<th>Максимум</th>
-			<th>По умолчанию</th>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<select>
-					<option>Число</option>
-					<option>Строка</option>
-					<option>Дата</option>
-				</select>
-			</td>
-			<td>
-				<select>
-					<option>Месяц</option>
-					<option>Процент</option>
-					<option>Дата</option>
-				</select>
-			</td>
-			<td>4</td>
-			<td>5</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>2</td>
-			<td>3</td>
-			<td>4</td>
-			<td>5</td>
-		</tr>
-	</table>
+	<%= render partial: "/flow/table" %>
 </div>

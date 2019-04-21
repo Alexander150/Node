@@ -2,6 +2,7 @@ class FlowController < ApplicationController
   def index
   	@edges = []
     @metrics = Metric.all
+    @metric_values = MetricValue.all
 
   	@first_node = Node.find_by :first_node => true
   	@last_node = Node.find_by :last_node => true
