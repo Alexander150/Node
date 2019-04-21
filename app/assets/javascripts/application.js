@@ -45,16 +45,10 @@ app.controller('AdminBoardCtrl', function($scope){
 	}
 
 	$scope.nodeView = function(eId) {
-	    // alert(eId);
 		var target = document.getElementById("e-"+eId);
 		var blocks = document.getElementsByClassName("white_block");
-		// alert(blocks.length);
 		for (var i = 0; i < blocks.length; i++) {
-			// if (blocks[i].style.display == "block") {
-				blocks[i].style.display = "none"
-			// } else {
-				// blocks[i].style.display = "block"
-			// }
+			blocks[i].style.display = "none"
 		}
 		target.style.display="block";
 	}

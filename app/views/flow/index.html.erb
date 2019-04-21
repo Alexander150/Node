@@ -12,7 +12,7 @@
 				<div ng-if="!$last" style="display: inline-block; height: 2px; width: 100%; background-color: black;"></div>
 			</div>
 			<div class="btn_admin" ng-click="createNode(e);">
-					Создать новый нод e-{{e.id}}
+					Создать новый нод
 			</div>
 			<div class="white_block" id="e-{{e.id}}"  name= "{{ e.name }}">
 				<%= render partial:"/flow/edge_circles" %>
@@ -22,7 +22,7 @@
 </div>
 <div class="admin_body2">
 	<table align="left" style="border-color: black;" border="1px">
-		<caption align="left">Параметры</caption>
+		<caption align="center">Параметры</caption>
 		<tr>
 			<th>Название</th>
 			<th>Тип</th>
@@ -32,7 +32,7 @@
 			<th>По умолчанию</th>
 		</tr>
 		<tr>
-			<td>1</td>
+			<td></td>
 			<td>
 				<select>
 					<option>Число</option>

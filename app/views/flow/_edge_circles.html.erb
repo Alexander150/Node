@@ -1,42 +1,32 @@
 <div class="green_circle" name="{{e.name}}"></div>
 <div class="green_line" name="{{e.name}}">
 	<span style="position: relative;" ng-repeat="metric_value in e.node.metric_values">
-		<span ng-if="!metric_value.has_to_be_entered">
+		<span style="text-decoration: underline green;" ng-if="!metric_value.has_to_be_entered">
 			{{ metric_value.metric.name }} = 
 			{{ metric_value.value }}<br>
-			<span ng-if="$last">
-				<a href="/admin/metrics/new" style="text-decoration: none;">
-					<button class="btn_admin">
-						Создать новую метрику
-					</button>
-				</a>
 		</span>
 	</span>
+	<a href="/admin/metrics/new" style="text-decoration: none; font-size: 0.6vw; color: green; display: block; margin: 0px;">
+		Добавить
+	</a>
 </div>
 <div class="red_circle" name="{{e.name}}   пробел"></div>
 <div class="red_line" name="{{e.name}}">
 	<span style="position: relative;" ng-repeat="metric_value in e.node.metric_values">
-		<span ng-if="!!metric_value.has_to_be_entered">
+		<span style="text-decoration: underline red;" ng-if="!!metric_value.has_to_be_entered">
 			{{ metric_value.metric.name }}<br>
-			<span ng-if="$last">
-				<a href="/admin/metrics/new" style="text-decoration: none;">
-					<button class="btn_admin">
-						Создать новую метрику
-					</button>
-				</a>
 		</span>
 	</span>
+	<a href="/admin/metrics/new" style="text-decoration: none; font-size: 0.6vw; color: red; display: block; margin: 0px;">
+		Добавить
+	</a>
 </div>
 <div class="violet_circle" name="{{ e.name }}"></div>
 <div class="violet_line" name="{{ e.name }}">
-	<span ng-repeat="metric_operation in e.metric_operations">
-		<p>{{metric_operation.name}}</p>
-		<span ng-if="$last">
-			<a href="/admin/metric_operations/new" style="text-decoration: none;">
-				<button class="btn_admin">
-					Создать новую операцию
-				</button>
-			</a>
-		</span>
+	<span style="text-decoration: underline purple;" ng-repeat="metric_operation in e.metric_operations">
+		{{metric_operation.name}}<br>
 	</span>
+	<a href="/admin/metrics/new" style="text-decoration: none; font-size: 0.6vw; color: purple; display: block; margin: 0px;">
+		Добавить
+	</a>
 </div>

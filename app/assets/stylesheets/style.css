@@ -81,7 +81,6 @@ body{
 }
 
 .green_line, .red_line, .violet_line{
-	/*display: none;*/
 	font-size: 1vw;
 	position: fixed;
 	color: black;
@@ -95,7 +94,6 @@ body{
 	width: 10px;
 	height: 10px;
 	border-radius: 5px;
-	/*display: none;*/
 	position: fixed;
 	margin-top: -4.9%;
 	z-index: 10;
@@ -116,21 +114,19 @@ body{
 	padding-top: 5%;
 	margin-left: 25.25%;
 	border-left: 2px solid green;
-	text-decoration: underline green;
 	margin-left: 6.7%;
+	z-index: 4;
 }
 .red_line {
 	padding-top: 10%;
 	margin-left: 20.20%;
 	border-left: 2px solid red;
-	text-decoration: underline red;
 	margin-left: 5.2%;
 }
 .violet_line {
 	padding-top: 15%;
 	margin-left: 15.20%;
 	border-left: 2px solid purple;
-	text-decoration: underline purple;
 	z-index: 2;
 	margin-left: 3.7%;
 }

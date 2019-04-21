@@ -2,9 +2,6 @@
 	<i class="fal fa-times">X</i>
 	<input ng-model="dataNode.name" class="node-creation-input" name="node_name" placeholder="Название нода" />
 	<input ng-model="dataNode.body" class="node-creation-input" name="node_body" placeholder="Тело нода" />
-	<!-- <select ng-model="dataNode.metric_value" class="node-creation-input" name="node_metric_value" placeholder="Введите значение метрики">
-		
-	</select> -->
 	<select ng-model="dataMetricValue.metric" placeholder="Выберите метрику">
 		<option style="color: white;">Выберите метрику</option>
 		<% @metrics.each do |metric|%>
