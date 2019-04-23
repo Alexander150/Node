@@ -6,7 +6,7 @@
 				<div class="nodes" ng-mouseenter="nodeView(e.id);" ng-mouseleave="nodeView(e.id);">
 					{{ e.node.name }}
 				</div>
-				<div ng-if="$last" class="nodes" ng-mouseenter="nodeView(e.id);" ng-mouseleave="nodeView(e.id);">
+				<div style="margin-left: 0px;" ng-if="$last" class="nodes" ng-mouseenter="nodeView(e.id);" ng-mouseleave="nodeView(e.id);">
 					<%= @last_node.name %>
 				</div>
 				<div ng-if="!$last" style="display: inline-block; height: 2px; width: 100%; background-color: black;"></div>
@@ -20,6 +20,4 @@
 		</span>
 	</div>
 </div>
-<div class="admin_body2">
-	<%= render partial: "/flow/table" %>
-</div>
+<%= render partial: "/flow/table" %>

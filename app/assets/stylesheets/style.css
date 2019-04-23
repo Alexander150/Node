@@ -30,17 +30,6 @@ body{
 	display: flex;
 	align-items: center;
 }
-.admin_body2{
-	background-color: white;
-	color: black;
-	width: 100%;
-	height: 60%;
-	display: -webkit-flex; 
-	-webkit-justify-content: flex-start;
-	display: flex;
-	align-items: center;
-	font-size: 1vw;
-}
 .admin{
 	width: 100%;
 	display: -webkit-flex; 
@@ -78,57 +67,6 @@ body{
 	display: none;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
 	transition: 500ms;
-}
-
-.green_line, .red_line, .violet_line{
-	font-size: 1vw;
-	position: fixed;
-	color: black;
-	width: 30%;
-	height: auto;
-	z-index: 3;
-	margin-top: -4.5%;
-	text-align: left;
-}
-.green_circle, .red_circle, .violet_circle{
-	width: 10px;
-	height: 10px;
-	border-radius: 5px;
-	position: fixed;
-	margin-top: -4.9%;
-	z-index: 10;
-}
-.green_circle{
-	background-color: green;
-	margin-left: 6.5%;
-}
-.red_circle{
-	background-color: red;
-	margin-left: 5%;
-}
-.violet_circle{
-	background-color: purple;
-	margin-left: 3.5%;
-}
-.green_line {
-	padding-top: 5%;
-	margin-left: 25.25%;
-	border-left: 2px solid green;
-	margin-left: 6.7%;
-	z-index: 4;
-}
-.red_line {
-	padding-top: 10%;
-	margin-left: 20.20%;
-	border-left: 2px solid red;
-	margin-left: 5.2%;
-}
-.violet_line {
-	padding-top: 15%;
-	margin-left: 15.20%;
-	border-left: 2px solid purple;
-	z-index: 2;
-	margin-left: 3.7%;
 }
 .nodes{
 	background-color: darkgrey;

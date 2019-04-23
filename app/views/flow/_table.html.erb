@@ -1,34 +1,50 @@
-<table align="left" style="border-color: black;" border="1px">
-	<caption align="center">Параметры</caption>
-	<tr>
-		<th>Название</th>
-		<th>Тип</th>
-		<th>Единицы измерения</th>
-		<th>Минимум</th>
-		<th>Максимум</th>
-		<th>По умолчанию(берутся значения из базы)</th>
-	</tr>
-	<% @metric_values.each do |metric_value| %>
+<div class="admin_body2">
+	<table align="left" class="table" border="1px">
+		<caption align="center" style="font-size: 1.5vw;">Параметры</caption>
 		<tr>
-			<td><%= metric_value.metric.name %></td>
-			<td>
-				<select>
-					<option selected="selected" value="<%= metric_value.id %>"><%= metric_value.metric.type_metric %></option>
-					<option>Число</option>
-					<option>Строка</option>
-					<option>Дата</option>
-				</select>
-			</td>
-			<td>
-				<select>
-					<option>Месяц</option>
-					<option>Процент</option>
-					<option>Дата</option>
-				</select>
-			</td>
-			<td><%= metric_value.min_value %></td>
-			<td><%= metric_value.max_value %></td>
-			<th><%= metric_value.value %></th>
+			<th>Название</th>
+			<th>Тип</th>
+			<th>Единицы измерения</th>
+			<th>Минимум</th>
+			<th>Максимум</th>
+			<th>По умолчанию(берутся значения из базы)</th>
 		</tr>
-	<% end %>
-</table>
+		<% @metrics.each do |metric| %>
+			<% metric_value = @metric_values.find_by metrics_id: metric.id %>
+			<tr>
+				<td>
+					<%= metric.name %>
+				</td>
+				<td>
+					<select>
+						<option selected="selected" value="<%= metric_value.id %>"><%= metric.type_metric %></option>
+						<option>Число</option>
+						<option>Строка</option>
+						<option>Дата</option>
+					</select>
+				</td>
+				<td>
+					<select>
+						<option>Месяц</option>
+						<option>Процент</option>
+						<option>Дата</option>
+					</select>
+				</td>
+				<td>
+					<%= metric_value.min_value %>
+					
+				</td>
+				<td>
+					<%= metric_value.max_value %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td class="add-metric" colspan="5">
+				<a href="/admin/metrics/new" style="text-decoration: none; color: green; display: block; margin: 0px;">
+					Добавить
+				</a>
+			</td>
+		</tr>
+	</table>
+</div>

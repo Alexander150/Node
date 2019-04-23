@@ -1,0 +1,21 @@
+.admin_body2{
+	background-color: white;
+	color: black;
+	width: 100%;
+	height: 60%;
+	display: -webkit-flex; 
+	-webkit-justify-content: flex-start;
+	display: flex;
+	align-items: center;
+	font-size: 1vw;
+}
+.table{
+	border-color: black;
+}
+.add-metric{
+	background-color: white;
+}
+.add-metric:hover{
+	background-color: lightgreen;
+	color: darkgreen;
+}
