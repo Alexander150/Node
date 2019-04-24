@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_24_123922) do
+ActiveRecord::Schema.define(version: 2019_04_24_193920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 2019_04_24_123922) do
     t.integer "target_node_id"
     t.index ["metric_operation_id"], name: "index_edges_on_metric_operation_id"
     t.index ["node_id"], name: "index_edges_on_node_id"
+  end
+
+  create_table "measures", force: :cascade do |t|
+    t.string "name"
+    t.string "class_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "metric_operations", force: :cascade do |t|

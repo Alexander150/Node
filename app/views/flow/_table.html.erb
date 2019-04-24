@@ -18,7 +18,6 @@
 				</td>
 				<td>
 					<select>
-						<option selected="selected" value="<%= metric_value.id %>"><%= metric.type_metric %></option>
 						<% DataType.all.each do |d_t|%>
 							<option><%= d_t.name %></option>
 						<% end %>
