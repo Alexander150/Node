@@ -10,6 +10,7 @@
 			<th>По умолчанию(берутся значения из базы)</th>
 		</tr>
 		<% @metrics.each do |metric| %>
+
 			<% metric_value = @metric_values.find_by metrics_id: metric.id %>
 			<tr>
 				<td>
@@ -18,9 +19,9 @@
 				<td>
 					<select>
 						<option selected="selected" value="<%= metric_value.id %>"><%= metric.type_metric %></option>
-						<option>Число</option>
-						<option>Строка</option>
-						<option>Дата</option>
+						<% DataType.all.each do |d_t|%>
+							<option><%= d_t.name %></option>
+						<% end %>
 					</select>
 				</td>
 				<td>
