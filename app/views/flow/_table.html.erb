@@ -18,21 +18,20 @@
 				</td>
 				<td>
 					<select>
-						<% DataType.all.each do |d_t|%>
-							<option><%= d_t.name %></option>
+						<% DataType.all.each do |data_type|%>
+							<option><%= data_type.name %></option>
 						<% end %>
 					</select>
 				</td>
 				<td>
 					<select>
-						<option>Месяц</option>
-						<option>Процент</option>
-						<option>Дата</option>
+						<% Measure.all.each do |measure| %>
+							<option><%= measure.name %></option>
+						<% end %>
 					</select>
 				</td>
 				<td>
 					<%= metric_value.min_value %>
-					
 				</td>
 				<td>
 					<%= metric_value.max_value %>
