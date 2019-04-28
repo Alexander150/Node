@@ -38,12 +38,20 @@
 				</td>
 			</tr>
 		<% end %>
+		<%= render "/flow/new_metric" %>
 		<tr>
 			<td class="add-metric" colspan="5">
-				<a href="/admin/metrics/new" style="text-decoration: none; color: green; display: block; margin: 0px;">
-					Добавить
-				</a>
+				<!-- <a href="/admin/metrics/new" style="text-decoration: none; color: green; display: block; margin: 0px;"> -->
+					<!-- Добавить -->
+				<!-- </a> -->
+				<div class="btn_admin" ng-click="createMetric();">
+					Создать новый нод
+				</div>
 			</td>
 		</tr>
 	</table>
+	<%= render "/flow/new_metric" %>
+	<div class="btn_admin" ng-click="createMetric();">
+					Создать новый нод
+				</div>
 </div>

@@ -7,6 +7,7 @@ Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( new_node.scss )
 Rails.application.config.assets.precompile += %w( table.css )
 Rails.application.config.assets.precompile += %w( edge_circles.scss )
+Rails.application.config.assets.precompile += %w( new_metric.css )
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path

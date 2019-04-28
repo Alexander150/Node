@@ -1,4 +1,4 @@
-.new-node-container{
+.new-metric-container{
 	transition: 500ms;
 	width: 320px;
 	height: 200px;
@@ -6,18 +6,18 @@
 	color: #858585;
 	font-size: 12px;
 	position: absolute;
-	top: 20px;
+	top: 500px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
 	left: 20px;
 	padding: 15px;
-	border-radius: 15px;
+	border-radius: 15px;	
 	display: flex;
 	flex-direction: column;
 	opacity: 0;
 	pointer-events: none;
 }
 
-.node-creation-input{
+.metric-creation-input{
 	width: 270px;
 	height: 40px;
 }

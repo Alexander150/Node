@@ -62,7 +62,28 @@ app.controller('AdminBoardCtrl', function($scope){
 		$("#node_creation_"+e.id).css({
 			"opacity": 1,
 			"pointer-events": "all",
-			"z-index": "10"
+			"z-index": "1000"
+		});
+	}
+
+	$scope.closeCreateNode = function(){
+		$("#node_creation_"+e.id).css({
+			"opacity": 0,
+			"pointer-events": "none",
+			"z-index": "0"
+		});
+	}
+
+	$scope.createMetric = function(){
+		// if (!!skipUpdate) return;
+		// skipUpdate = true;
+		// $scope.activeEdge = e;
+		// $scope.dataNode = {};
+		// $scope.dataMetricValue = {};
+		$("#metric_creation").css({
+			"opacity": 1,
+			"pointer-events": "all",
+			"z-index": "10000"
 		});
 	}
 
