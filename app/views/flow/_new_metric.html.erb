@@ -1,14 +1,7 @@
 <div class="new-metric-container" id="metric_creation">
 	<i style="right: 2px; top: 2px;" ng-click="closeCreateMetric();" class="fal fa-times">X</i>
-	<input ng-model="dataNode.name" class="metric-creation-input" name="node_name" placeholder="Название нода" />
-	<input ng-model="dataNode.body" class="metric-creation-input" name="node_body" placeholder="Тело нода" />
-	<select ng-model="dataMetricValue.metric" placeholder="Выберите метрику">
-		<option style="color: white;">Выберите метрику</option>
-		<% @metrics.each do |metric|%>
-			<option style="color: white;"><%= metric.name %></option>
-		<% end %>
-	</select>
+	<input ng-model="dataMetric.name" class="metric-creation-input" name="metric_name" placeholder="Название нода" />
+	<input ng-model="dataMetric.type_metric" class="metric-creation-input" name="metric_type_metric" placeholder="Тело нода" />
 	<input ng-model="dataMetricValue.value" class="metric-creation-input" name="node_metric_value_value" placeholder="Значение метрики">
-	<input type="checkbox" ng-model="dataNode.last_node" class="metric-creation-input" name="node_last_node" />
 	<button ng-click="sendNewMetricData();">СОЗДАТЬ</button>
 </div>

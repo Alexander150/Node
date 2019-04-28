@@ -7,7 +7,7 @@ permit_params :name, :type_metric
 form do |f|
 	f.inputs do
 		f.input :name, label: "Название метрики: "
-		f.input :type_metric, label: "Тип метрики: "
+		f.input :type_metric, label: "Тип метрики: ", as: :select, collection: DataType.all.map{|x| [x.name, x.id]}
 	end
 	f.actions
 end
