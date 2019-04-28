@@ -1,5 +1,5 @@
 <div class="new-node-container" id="node_creation_{{e.id}}">
-	<div ng-click="closeCreateNode();"><i class="fal fa-times">X</i></div>
+	<div ng-click="closeCreateNode(e);"><i class="fal fa-times">X</i></div>
 	<input ng-model="dataNode.name" class="node-creation-input" name="node_name" placeholder="Название нода" />
 	<input ng-model="dataNode.body" class="node-creation-input" name="node_body" placeholder="Тело нода" />
 	<select ng-model="dataMetricValue.metric" placeholder="Выберите метрику">

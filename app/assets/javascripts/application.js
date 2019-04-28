@@ -66,7 +66,7 @@ app.controller('AdminBoardCtrl', function($scope){
 		});
 	}
 
-	$scope.closeCreateNode = function(){
+	$scope.closeCreateNode = function(e){
 		$("#node_creation_"+e.id).css({
 			"opacity": 0,
 			"pointer-events": "none",
@@ -84,6 +84,14 @@ app.controller('AdminBoardCtrl', function($scope){
 			"opacity": 1,
 			"pointer-events": "all",
 			"z-index": "10000"
+		});
+	}
+
+	$scope.closeCreateMetric = function(){
+		$("#metric_creation").css({
+			"opacity": 0,
+			"pointer-events": "none",
+			"z-index": "0"
 		});
 	}
 

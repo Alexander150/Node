@@ -1,4 +1,4 @@
-<div class="admin_body2">
+<div class="admin_body2" ng-controller="AdminBoardCtrl" ng-init="init();">
 	<table align="left" class="table" border="1px">
 		<caption align="center" style="font-size: 1.5vw;">Параметры</caption>
 		<tr>
@@ -38,20 +38,11 @@
 				</td>
 			</tr>
 		<% end %>
-		<%= render "/flow/new_metric" %>
 		<tr>
-			<td class="add-metric" colspan="5">
-				<!-- <a href="/admin/metrics/new" style="text-decoration: none; color: green; display: block; margin: 0px;"> -->
-					<!-- Добавить -->
-				<!-- </a> -->
-				<div class="btn_admin" ng-click="createMetric();">
-					Создать новый нод
-				</div>
+			<td class="add-metric" colspan="5" ng-click="createMetric();">
+				Добавить
 			</td>
 		</tr>
 	</table>
 	<%= render "/flow/new_metric" %>
-	<div class="btn_admin" ng-click="createMetric();">
-					Создать новый нод
-				</div>
 </div>

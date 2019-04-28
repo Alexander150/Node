@@ -1,5 +1,5 @@
 <div class="new-metric-container" id="metric_creation">
-	<i class="fal fa-times">X</i>
+	<i style="right: 2px; top: 2px;" ng-click="closeCreateMetric();" class="fal fa-times">X</i>
 	<input ng-model="dataNode.name" class="metric-creation-input" name="node_name" placeholder="Название нода" />
 	<input ng-model="dataNode.body" class="metric-creation-input" name="node_body" placeholder="Тело нода" />
 	<select ng-model="dataMetricValue.metric" placeholder="Выберите метрику">
