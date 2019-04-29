@@ -85,7 +85,7 @@ app.controller('AdminBoardCtrl', function($scope){
 			type: "POST",
  			data: dataNode,
 			success: function(msg){
-				alert(JSON.stringify(dataNode));
+				alert("Новый нод добавлен.");
 				$("#node_creation_"+e.id).css({
 					"opacity": 0,
 					"pointer-events": "none",
@@ -101,7 +101,6 @@ app.controller('AdminBoardCtrl', function($scope){
 	$scope.createMetric = function(){
 		if (!!skipUpdate) return;
 		skipUpdate = true;
-		// $scope.activeEdge = e;
 		$scope.dataMetric = {};
 		$scope.dataMetricValue = {};
 		$("#metric_creation").css({
@@ -119,18 +118,18 @@ app.controller('AdminBoardCtrl', function($scope){
 		});
 	}
 
-	$scope.sendNewNodeData = function(e){
-		var dataNode = {
+	$scope.sendNewMetricData = function(){
+		var dataMetric = {
 			metric: $scope.dataMetric,
 			metric_value: $scope.dataMetricValue
 		};
 		$.ajax({
-			url: '/node/create',
+			url: '/metrics/create',
 			type: "POST",
- 			data: dataNode,
+ 			data: dataMetric,
 			success: function(msg){
-				alert(JSON.stringify(dataNode));
-				$("#node_creation_"+e.id).css({
+				alert("Новая метрика добавлена.");
+				$("#metric_creation").css({
 					"opacity": 0,
 					"pointer-events": "none",
 					"z-index": "0"

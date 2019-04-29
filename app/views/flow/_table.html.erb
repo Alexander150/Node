@@ -31,10 +31,18 @@
 					</select>
 				</td>
 				<td>
-					<%= metric_value.min_value %>
+					<% if metric_value.nil? %>
+						0
+					<% else %>
+						<%= metric_value.min_value %>
+					<% end %>
 				</td>
 				<td>
-					<%= metric_value.max_value %>
+					<% if metric_value.nil? %>
+						0
+					<% else %>
+						<%= metric_value.max_value %>
+					<% end %>
 				</td>
 			</tr>
 		<% end %>

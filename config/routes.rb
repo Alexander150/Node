@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'flow/index'
   post 'node/create'
   post 'edges/create'
+  post 'metrics/create'
   get 'flow/edges' => "flow#edges"
   # get 'node/index'
   ActiveAdmin.routes(self)
