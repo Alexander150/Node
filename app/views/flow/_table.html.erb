@@ -19,7 +19,11 @@
 				<td>
 					<select>
 						<% DataType.all.each do |data_type|%>
-							<option><%= data_type.name %></option>
+							<% if metric.type_metric == data_type.id %>
+								<option selected="selected"><%= data_type.name %></option>
+							<% else %>
+								<option><%= data_type.name %></option> 
+							<% end %>
 						<% end %>
 					</select>
 				</td>

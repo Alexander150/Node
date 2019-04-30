@@ -118,6 +118,25 @@ app.controller('AdminBoardCtrl', function($scope){
 		});
 	}
 
+	$scope.addMetric = function(e){
+		if (!!skipUpdate) return;
+		skipUpdate = true;
+		$("#add_metric_"+e.id).css({
+			"opacity": 1,
+			"pointer-events": "all",
+			"z-index": "10000"
+		});
+	}
+
+	$scope.closeAddMetric = function(e){
+		skipUpdate = false;
+		$("#add_metric_"+e.id).css({
+			"opacity": 0,
+			"pointer-events": "none",
+			"z-index": "0"
+		});
+	}
+
 	$scope.sendNewMetricData = function(){
 		var dataMetric = {
 			metric: $scope.dataMetric,
