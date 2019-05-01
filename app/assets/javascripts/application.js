@@ -97,6 +97,29 @@ app.controller('AdminBoardCtrl', function($scope){
 			}
 		});
 	}
+	$scope.sendAddNodeData = function(e){
+		var addDataNode = {
+			edge: e.id,
+			metric_value: $scope.dataMetricValue,
+			metric: $scope.dataMetric
+		};
+		$.ajax({
+			url: '/node/update',
+			type: "POST",
+ 			data: addDataNode,
+			success: function(msg){
+				alert("Нод обновлен.");
+				$("#add_metric_"+e.id).css({
+					"opacity": 0,
+					"pointer-events": "none",
+					"z-index": "0"
+				});
+			},
+			error: function(msg){
+				alert("ERROR: "+JSON.stringify(addDataNode));
+			}
+		});
+	}
 
 	$scope.createMetric = function(){
 		if (!!skipUpdate) return;

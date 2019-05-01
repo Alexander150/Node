@@ -34,20 +34,17 @@
 						<% end %>
 					</select>
 				</td>
-				<td>
-					<% if metric_value.nil? %>
-						0
-					<% else %>
+				<% if !metric_value.nil? %>
+					<td>
 						<%= metric_value.min_value %>
-					<% end %>
-				</td>
-				<td>
-					<% if metric_value.nil? %>
-						0
-					<% else %>
+					</td>
+					<td>
 						<%= metric_value.max_value %>
-					<% end %>
-				</td>
+					</td>
+				<% else %>
+					<td>Не задано</td>
+					<td>Не задано</td>
+				<% end %>
 			</tr>
 		<% end %>
 		<tr>

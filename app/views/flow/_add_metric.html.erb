@@ -1,13 +1,16 @@
 <div class="add-metric-container" id="add_metric_{{e.id}}">
-	<i style="right: 2px; top: 2px;" ng-click="closeAddMetric(e);" class="fal fa-times">X</i>
-	<input ng-model="dataMetric.name" class="metric-creation-input" name="metric_name" placeholder="Название метрики" />
-	<select ng-model="dataMetric.type_metric" class="metric-creation-input" name="metric_type_metric">
-		<% DataType.all.each do |data_type| %>
-			<option value="<%= data_type.id%>"> 
-				<%= data_type.name%>
-			</option>
-		<% end %>
-	</select>
-	<input ng-model="dataMetricValue.value" class="metric-creation-input" name="metric_metric_value_value" placeholder="Значение метрики">
-	<button ng-click="sendNewMetricData();">СОЗДАТЬ</button>
+	<div style="text-align: right; height: auto; width: 100%;">
+		<i style="right: 2px; top: 2px;" ng-click="closeAddMetric(e);" class="fal fa-times">X</i>
+	</div>
+	<div style="text-align: center; height: auto; width: 100%;">
+		<select ng-model="dataMetric.name" class="metric-creation-input" name="metric_name">
+			<% Metric.all.each do |metric| %>
+				<option value="<%= metric.id%>"> 
+					<%= metric.name%>
+				</option>
+			<% end %>
+		</select>
+		<input ng-model="dataMetricValue.value" class="metric-creation-input" name="metric_metric_value_value" placeholder="Значение метрики">
+		<button ng-click="sendAddNodeData(e);">СОЗДАТЬ</button>
+	</div>
 </div>

@@ -51,6 +51,14 @@ class NodeController < ApplicationController
   	@edge.update_attributes!(target_node_id: @node.id)
   end
 
+  def update
+    metric = params.require(:metric)["metric"]
+    current_edge = Edge.find_by id: params.require(:edge)
+    current_node = current_edge.node
+    node = Node.find_by id: current_node.id
+    p node
+  end
+
   private
 	  def node_params
 	    params.require(:node).permit(:name, :body, :first_node, :last_node, :metric_value, :edges)
