@@ -1,6 +1,7 @@
 <div ng-controller="AdminBoardCtrl" ng-init="init();" class="admin_body">
 	<div class="admin">
 		<span ng-repeat="e in edges" style="position: relative; margin-top: 80px;">
+			<%= render "/flow/add_metric" %>
 			<%= render "/flow/new_node" %>
 			<div style="display: -webkit-flex; -webkit-justify-content: flex-start; display: flex; align-items: center; ">
 				<div class="nodes" ng-if="!$last" style="font-size: 16px; padding: 5px; box-sizing: border-box; min-width: 120px;" ng-mouseenter="nodeView(e.id);" ng-mouseleave="nodeView(e.id);">

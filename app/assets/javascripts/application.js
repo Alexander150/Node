@@ -45,6 +45,7 @@ app.controller('AdminBoardCtrl', function($scope){
 	}
 
 	$scope.nodeView = function(eId) {
+		var addDataNode = {};
 		var target = document.getElementById("e-"+eId);
 		var blocks = document.getElementsByClassName("white_block");
 		for (var i = 0; i < blocks.length; i++) {
@@ -74,6 +75,12 @@ app.controller('AdminBoardCtrl', function($scope){
 		});
 	}
 
+	$.ajaxSetup({
+  		headers: {
+    		'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  		}
+	});
+
 	$scope.sendNewNodeData = function(e){
 		var dataNode = {
 			node: $scope.dataNode,
@@ -99,16 +106,16 @@ app.controller('AdminBoardCtrl', function($scope){
 	}
 	$scope.sendAddNodeData = function(e){
 		var addDataNode = {
-			edge: e.id,
-			metric_value: $scope.dataMetricValue,
-			metric: $scope.dataMetric
+			metric_value: $("#desired-metric-value-"+e.id).val(),
+			metric: $("#desired-metric-"+e.id).val(),
+			edge: e.id
 		};
 		$.ajax({
 			url: '/node/update',
 			type: "POST",
  			data: addDataNode,
 			success: function(msg){
-				alert("Нод обновлен.");
+				alert("Нод обновлен." + JSON.stringify(addDataNode));
 				$("#add_metric_"+e.id).css({
 					"opacity": 0,
 					"pointer-events": "none",

@@ -52,11 +52,12 @@ class NodeController < ApplicationController
   end
 
   def update
-    metric = params.require(:metric)["metric"]
+    metric_name = params.require(:metric)
+    metric = Metric.find_by name: metric_name
     current_edge = Edge.find_by id: params.require(:edge)
-    current_node = current_edge.node
-    node = Node.find_by id: current_node.id
-    p node
+    current_node_id = current_edge.node.id
+    metric_value = MetricValue.new(metric: metric, value: params.require(:metric_value), node_id: current_node_id)
+    metric_value.save!
   end
 
   private
