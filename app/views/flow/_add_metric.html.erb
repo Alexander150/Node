@@ -5,8 +5,8 @@
 	<div style="text-align: center; height: auto; width: 100%;">
 		<select id="desired-metric-{{e.id}}" class="metric-creation-input" name="metric_name">
 			<% Metric.all.each do |metric| %>
-				<option value="<%= metric.name%>">
-					<%= metric.name%>
+				<option ng-repeat="metric_value in e.node.metric_values" ng-hide="metric_value.metric.id != <%= metric.id %>" value="<%= metric.name %>">
+					<%= metric.name %>
 				</option>
 			<% end %>
 		</select>
