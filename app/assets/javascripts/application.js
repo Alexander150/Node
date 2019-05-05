@@ -30,11 +30,42 @@ app.controller('NodeCtrl', ['$scope', function($scope){
 
 app.controller('AdminBoardCtrl', function($scope){
 	var skipUpdate = false;
-	$scope.init = function(){
-
+	$scope.init = function(metrics){
+		$scope.metrics = metrics;
 		$.getJSON("/flow/edges",function(res){
 			if (!skipUpdate){
 				$scope.edges = res;
+				for(var i=1; i<$scope.edges.length; i++){
+					var edge = $scope.edges[i];
+					$scope.edges[i].prevNode = $scope.edges[i-1].node;
+				}
+
+				for(var i=1; i<$scope.edges.length; i++){
+					var edge = $scope.edges[i];
+					var availableMetrics = [];
+					// alert($scope)
+					for(var j=0; j<$scope.metrics.length; j++){
+						availableMetrics.push($scope.metrics[j]);
+					}
+
+					var usedMetrics = edge.prevNode.metric_values.map(function(val, index, array){
+						return val.metric;
+					});
+					for(var j=0; j<usedMetrics.length; j++){
+						var metrIndex = -1;//availableMetrics.indexOf(usedMetrics[j]);
+						for(var k=0; k<availableMetrics.length; k++){
+							if (availableMetrics[k].id == usedMetrics[j].id){
+								// alert(edge.id+": "+availableMetrics[k].id+" "+usedMetrics[j].id);
+								metrIndex = k;
+								break;
+							}
+						}
+						if ( -1 < metrIndex ) {
+							availableMetrics.splice(metrIndex,1);
+						}
+					}
+					$scope.edges[i-1].availableMetrics=availableMetrics = availableMetrics;
+				}
 				$scope.$apply();
 			}
 			setTimeout(function(){
@@ -116,7 +147,7 @@ app.controller('AdminBoardCtrl', function($scope){
  			data: addDataNode,
 			success: function(msg){
 				alert("Нод обновлен." + JSON.stringify(addDataNode));
-				$("#add_metric_"+e.id).css({
+				$("#add_metric_has_to_be_entered_"+e.id).css({
 					"opacity": 0,
 					"pointer-events": "none",
 					"z-index": "0"
