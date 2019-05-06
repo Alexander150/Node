@@ -6,10 +6,7 @@
 			{{ metric_value.value }}<br>
 		</span>
 	</span>
-	<!-- <a href="/admin/metrics/new" style="text-decoration: none; font-size: 0.6vw; color: green; display: block; margin: 0px;">
-		Добавить
-	</a> -->
-	<a href="#" style="color: green; margin: 0px; display: block; font-size: 0.6vw;" ng-click="addMetric(e);">Добавить</a>
+	<a href="#" style="color: green; margin: 0px; display: block; font-size: 0.6vw;" ng-click="addMetricHasTobeEntered(e);">Добавить</a>
 </div>
 <div class="red_circle" name="{{e.name}}   пробел"></div>
 <div class="red_line" name="{{e.name}}">
@@ -18,9 +15,7 @@
 			{{ metric_value.metric.name }}<br>
 		</span>
 	</span>
-	<a href="/admin/metrics/new" style="text-decoration: none; font-size: 0.6vw; color: red; display: block; margin: 0px;">
-		Добавить
-	</a>
+	<a href="#" style="color: red; margin: 0px; display: block; font-size: 0.6vw;" ng-click="addMetricHasNotTobeEntered(e);">Добавить</a>
 </div>
 <div class="violet_circle" name="{{ e.name }}"></div>
 <div class="violet_line" name="{{ e.name }}">

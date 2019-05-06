@@ -56,7 +56,11 @@ class NodeController < ApplicationController
     metric = Metric.find_by name: metric_name
     current_edge = Edge.find_by id: params.require(:edge)
     current_node_id = current_edge.node.id
-    metric_value = MetricValue.new(metric: metric, value: params.require(:metric_value), node_id: current_node_id)
+    if (params.has_key?(:metric_value))
+      metric_value = MetricValue.new(metric: metric, value: params.require(:metric_value), node_id: current_node_id)
+    else
+      metric_value = MetricValue.new(metric: metric, has_to_be_entered: true, node_id: current_node_id)
+    end
     metric_value.save!
   end
 

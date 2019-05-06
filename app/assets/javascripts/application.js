@@ -135,7 +135,7 @@ app.controller('AdminBoardCtrl', function($scope){
 			}
 		});
 	}
-	$scope.sendAddNodeData = function(e){
+	$scope.sendAddNodeDataHasToBeEntered = function(e){
 		var addDataNode = {
 			metric_value: $("#desired-metric-value-"+e.id).val(),
 			metric: $("#desired-metric-"+e.id).val(),
@@ -179,19 +179,62 @@ app.controller('AdminBoardCtrl', function($scope){
 		});
 	}
 
-	$scope.addMetric = function(e){
+	$scope.sendAddNodeDataHasNotToBeEntered = function(e){
+		var addDataNode = {
+			// metric_value: $("#desired-metric-value-"+e.id).val(),
+			metric: $("#desired-metric-"+e.id).val(),
+			edge: e.id
+		};
+		$.ajax({
+			url: '/node/update',
+			type: "POST",
+ 			data: addDataNode,
+			success: function(msg){
+				alert("Нод обновлен." + JSON.stringify(addDataNode));
+				$("#add_metric_has_not_to_be_entered_"+e.id).css({
+					"opacity": 0,
+					"pointer-events": "none",
+					"z-index": "0"
+				});
+			},
+			error: function(msg){
+				alert("ERROR: "+JSON.stringify(addDataNode));
+			}
+		});
+	}
+
+	$scope.addMetricHasTobeEntered = function(e){
 		if (!!skipUpdate) return;
 		skipUpdate = true;
-		$("#add_metric_"+e.id).css({
+		$("#add_metric_has_to_be_entered_"+e.id).css({
 			"opacity": 1,
 			"pointer-events": "all",
 			"z-index": "10000"
 		});
 	}
 
-	$scope.closeAddMetric = function(e){
+	$scope.closeAddMetricHasToBeEntered = function(e){
 		skipUpdate = false;
-		$("#add_metric_"+e.id).css({
+		$("#add_metric_has_to_be_entered_"+e.id).css({
+			"opacity": 0,
+			"pointer-events": "none",
+			"z-index": "0"
+		});
+	}
+
+	$scope.addMetricHasNotTobeEntered = function(e){
+		if (!!skipUpdate) return;
+		skipUpdate = true;
+		$("#add_metric_has_not_to_be_entered_"+e.id).css({
+			"opacity": 1,
+			"pointer-events": "all",
+			"z-index": "10000"
+		});
+	}
+
+	$scope.closeAddMetricHasNotToBeEntered = function(e){
+		skipUpdate = false;
+		$("#add_metric_has_not_to_be_entered_"+e.id).css({
 			"opacity": 0,
 			"pointer-events": "none",
 			"z-index": "0"

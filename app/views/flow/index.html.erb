@@ -1,7 +1,8 @@
 <div ng-controller="AdminBoardCtrl" ng-init="init(<%= Metric.all.to_json%>);" class="admin_body">
 	<div class="admin">
 		<span ng-repeat="e in edges" style="position: relative; margin-top: 80px;">
-			<%= render "/flow/add_metric" %>
+			<%= render "/flow/add_metric_has_to_be_entered" %>
+			<%= render "/flow/add_metric_has_not_to_be_entered" %>
 			<%= render "/flow/new_node" %>
 			<div style="display: -webkit-flex; -webkit-justify-content: flex-start; display: flex; align-items: center; ">
 				<div class="nodes" ng-if="!$last" ng-mouseenter="nodeView(e.id);" ng-mouseleave="nodeView(e.id);">
