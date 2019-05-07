@@ -43,7 +43,7 @@ app.controller('AdminBoardCtrl', function($scope){
 				for(var i=1; i<$scope.edges.length; i++){
 					var edge = $scope.edges[i];
 					var availableMetrics = [];
-					// alert($scope)
+
 					for(var j=0; j<$scope.metrics.length; j++){
 						availableMetrics.push($scope.metrics[j]);
 					}
@@ -52,7 +52,7 @@ app.controller('AdminBoardCtrl', function($scope){
 						return val.metric;
 					});
 					for(var j=0; j<usedMetrics.length; j++){
-						var metrIndex = -1;//availableMetrics.indexOf(usedMetrics[j]);
+						var metrIndex = -1;
 						for(var k=0; k<availableMetrics.length; k++){
 							if (availableMetrics[k].id == usedMetrics[j].id){
 								// alert(edge.id+": "+availableMetrics[k].id+" "+usedMetrics[j].id);
@@ -181,7 +181,6 @@ app.controller('AdminBoardCtrl', function($scope){
 
 	$scope.sendAddNodeDataHasNotToBeEntered = function(e){
 		var addDataNode = {
-			// metric_value: $("#desired-metric-value-"+e.id).val(),
 			metric: $("#desired-metric-"+e.id).val(),
 			edge: e.id
 		};
@@ -216,6 +215,48 @@ app.controller('AdminBoardCtrl', function($scope){
 	$scope.closeAddMetricHasToBeEntered = function(e){
 		skipUpdate = false;
 		$("#add_metric_has_to_be_entered_"+e.id).css({
+			"opacity": 0,
+			"pointer-events": "none",
+			"z-index": "0"
+		});
+	}
+
+	$scope.sendAddNodeDataOperation = function(e){
+		var addDataNode = {
+			metric: $("#desired-metric-"+e.id).val(),
+			edge: e.id
+		};
+		$.ajax({
+			url: '/node/update',
+			type: "POST",
+ 			data: addDataNode,
+			success: function(msg){
+				alert("Нод обновлен." + JSON.stringify(addDataNode));
+				$("#add_metric_operation_"+e.id).css({
+					"opacity": 0,
+					"pointer-events": "none",
+					"z-index": "0"
+				});
+			},
+			error: function(msg){
+				alert("ERROR: "+JSON.stringify(addDataNode));
+			}
+		});
+	}
+
+	$scope.addMetricOperation = function(e){
+		if (!!skipUpdate) return;
+		skipUpdate = true;
+		$("#add_metric_operation_"+e.id).css({
+			"opacity": 1,
+			"pointer-events": "all",
+			"z-index": "10000"
+		});
+	}
+
+	$scope.closeAddMetricOperation = function(e){
+		skipUpdate = false;
+		$("#add_metric_operation_"+e.id).css({
 			"opacity": 0,
 			"pointer-events": "none",
 			"z-index": "0"

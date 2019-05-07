@@ -22,7 +22,5 @@
 	<span style="text-decoration: underline purple;" ng-repeat="metric_operation in e.metric_operations">
 		{{metric_operation.name}}<br>
 	</span>
-	<a href="/admin/metrics/new" style="text-decoration: none; font-size: 0.6vw; color: purple; display: block; margin: 0px;">
-		Добавить
-	</a>
+	<a href="#" style="color: purple; margin: 0px; display: block; font-size: 0.6vw;" ng-click="addMetricOperation(e);">Добавить</a>
 </div>
