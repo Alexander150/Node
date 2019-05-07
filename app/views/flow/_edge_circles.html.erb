@@ -20,7 +20,7 @@
 <div class="violet_circle" name="{{ e.name }}"></div>
 <div class="violet_line" name="{{ e.name }}">
 	<span style="text-decoration: underline purple;" ng-repeat="metric_operation in e.metric_operations">
-		{{metric_operation.name}}<br>
+		{{metric_operation.name}} взаимодействует с метрикой {{metric_operation.metric.id}}<br>
 	</span>
 	<a href="#" style="color: purple; margin: 0px; display: block; font-size: 0.6vw;" ng-click="addMetricOperation(e);">Добавить</a>
 </div>

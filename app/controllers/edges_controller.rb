@@ -18,12 +18,18 @@ class EdgesController < ApplicationController
 
 		redirect_to "/node/#{edge.target_node_id}"
 	end
+	
+	def create
+		@edge = Edge.new(edge_params)
+		@edge.save
+	end
 
-	public
-		def create
-			@edge = Edge.new(edge_params)
-			@edge.save
-		end
+	def update
+		metric_name = params.require(:metric)
+    	metric = Metric.find_by name: metric_name
+    	metric_operation = MetricOperation.new(name: params.require(:metric_operation_name), value: params.require(:metric_operation_value), metric: metric, edge_id: params.require(:edge))
+    	metric_operation.save!
+	end
 
 	private
 		def edge_params

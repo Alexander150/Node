@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'flow/index'
   post 'node/create'
   post 'edges/create'
+  post 'edges/update'
   post 'metrics/create'
   post 'node/update'
   get 'flow/edges' => "flow#edges"

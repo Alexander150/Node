@@ -222,16 +222,18 @@ app.controller('AdminBoardCtrl', function($scope){
 	}
 
 	$scope.sendAddNodeDataOperation = function(e){
-		var addDataNode = {
+		var addDataNodeOperation = {
 			metric: $("#desired-metric-"+e.id).val(),
+			metric_operation_value: $("#desired-metric-operation-value-"+e.id).val(),
+			metric_operation_name: $("#desired-metric-operation-name-"+e.id).val(),
 			edge: e.id
 		};
 		$.ajax({
-			url: '/node/update',
+			url: '/edges/update',
 			type: "POST",
- 			data: addDataNode,
+ 			data: addDataNodeOperation,
 			success: function(msg){
-				alert("Нод обновлен." + JSON.stringify(addDataNode));
+				alert("Нод обновлен." + JSON.stringify(addDataNodeOperation));
 				$("#add_metric_operation_"+e.id).css({
 					"opacity": 0,
 					"pointer-events": "none",
@@ -239,7 +241,7 @@ app.controller('AdminBoardCtrl', function($scope){
 				});
 			},
 			error: function(msg){
-				alert("ERROR: "+JSON.stringify(addDataNode));
+				alert("ERROR: "+JSON.stringify(addDataNodeOperation));
 			}
 		});
 	}

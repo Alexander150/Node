@@ -4,11 +4,14 @@
 	</div>
 	<div style="text-align: center; height: auto; width: 100%;">
 		<select id="desired-metric-{{e.id}}" class="metric-creation-input" name="metric_name">
-				<option ng-repeat="metric in e.availableMetrics"  value="{{metric.name }}">
-					{{ metric.name }}
+			<% Metric.all.each do |metric|%>
+				<option value="<%= metric.name %>">
+					<%= metric.name %>
 				</option>
+			<% end %>
 		</select>
-		<input id="desired-metric-value-{{e.id}}" class="metric-creation-input" name="metric_metric_value_value" placeholder="Значение метрики">
+		<input id="desired-metric-operation-value-{{e.id}}" class="metric-creation-input" name="metric_metric_operation_value" placeholder="Значение операции">
+		<input id="desired-metric-operation-name-{{e.id}}" class="metric-creation-input" name="metric_metric_operation_name" placeholder="Название операции">
 		<button ng-click="sendAddNodeDataOperation(e);">
 			СОЗДАТЬ
 		</button>
