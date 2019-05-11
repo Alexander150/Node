@@ -9,44 +9,37 @@
 			<th>Максимум</th>
 			<th>По умолчанию(берутся значения из базы)</th>
 		</tr>
-		<% @metrics.each do |metric| %>
-
-			<% metric_value = @metric_values.find_by metrics_id: metric.id %>
-			<tr>
-				<td>
-					<%= metric.name %>
-				</td>
-				<td>
-					<select>
-						<% DataType.all.each do |data_type|%>
-							<% if metric.type_metric == data_type.id %>
-								<option selected="selected"><%= data_type.name %></option>
-							<% else %>
-								<option><%= data_type.name %></option> 
-							<% end %>
-						<% end %>
-					</select>
-				</td>
-				<td>
-					<select>
-						<% Measure.all.each do |measure| %>
-							<option><%= measure.name %></option>
-						<% end %>
-					</select>
-				</td>
-				<% if !metric_value.nil? %>
-					<td>
-						<%= metric_value.min_value %>
-					</td>
-					<td>
-						<%= metric_value.max_value %>
-					</td>
-				<% else %>
-					<td>Не задано</td>
-					<td>Не задано</td>
-				<% end %>
-			</tr>
-		<% end %>
+		<tr ng-repeat="metric in metrics">
+			<td>
+				{{metric.name}} 
+			</td>
+			<td>
+				<select>
+					<option ng-repeat="dataType in dataTypes" ng-selected="{{metric.type_metric==dataType.id}}">
+						{{ dataType.name }}
+					</option>
+				</select>
+			</td>
+			<td>
+				<select>
+					<option ng-repeat="measure in measures">
+						{{ measure.name }}
+					</option>
+				</select>
+			</td>
+			<td ng-if="metric.min_value != null">
+				{{ metric.min_value }} 
+			</td>
+			<td ng-if="metric.min_value == null">
+				Не существует 
+			</td>
+			<td ng-if="metric.max_value != null">
+				{{ metric.max_value }} 
+			</td>
+			<td ng-if="metric.max_value == null">
+				Не существует
+			</td>
+		</tr>
 		<tr>
 			<td class="add-metric" colspan="5" ng-click="createMetric();">
 				Добавить

@@ -2,11 +2,9 @@
 	<i style="right: 2px; top: 2px;" ng-click="closeCreateMetric();" class="fal fa-times">X</i>
 	<input ng-model="dataMetric.name" class="metric-creation-input" name="metric_name" placeholder="Название метрики" />
 	<select ng-model="dataMetric.type_metric" class="metric-creation-input" name="metric_type_metric">
-		<% DataType.all.each do |data_type| %>
-			<option value="<%= data_type.id%>"> 
-				<%= data_type.name%>
-			</option>
-		<% end %>
+		<option ng-repeat="dataType in dataTypes" value="{{ data_type.id }}"> 
+			{{ data_type.name }}
+		</option>
 	</select>
 	<input ng-model="dataMetricValue.value" class="metric-creation-input" name="metric_metric_value_value" placeholder="Значение метрики">
 	<button ng-click="sendNewMetricData();">СОЗДАТЬ</button>

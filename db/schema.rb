@@ -72,8 +72,6 @@ ActiveRecord::Schema.define(version: 2019_04_28_112812) do
     t.integer "node_id"
     t.string "name"
     t.boolean "has_to_be_entered"
-    t.string "min_value"
-    t.string "max_value"
     t.index ["metrics_id"], name: "index_metric_values_on_metrics_id"
   end
 
@@ -81,6 +79,8 @@ ActiveRecord::Schema.define(version: 2019_04_28_112812) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "min_value"
+    t.string "max_value"
     t.integer "type_metric"
   end
 
